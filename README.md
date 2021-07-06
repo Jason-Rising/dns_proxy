@@ -4,7 +4,7 @@
 * [About](#about)
 * [Project Structure](#project-structure)
 * [Running Project](#running-project)
-* [DNS TCP Overview](#dns-tcp-overview)
+* [Further Reading](#further-reading)
 
 <hr>
 
@@ -20,12 +20,14 @@ Computers on the internet use IP addresses to communicate with each other. These
 <br/>
 <p align="center">
 <img src="./images/nameserver.png" alt="DNS Nameserver Hierarchy" width="500">
-<center><small>DNS Nameserver Hierarchy</small></center>
+<br/>
+DNS Nameserver Hierarchy
 </p>
 <br/><br/>
 <p align="center">
-<img src="./images/DNS example.png" alt="DNS Nameserver Hierarchy" width="500">
-<center><small>DNS Process Example</small></center>
+<img src="./images/dns-example.png" alt="DNS Nameserver Hierarchy" width="500">
+<br/>
+DNS Process Example
 </p>
 
 <hr/>
@@ -58,7 +60,7 @@ The application can be run using the following command:
 
 Where, 
 
-* **server-ip**: <br/>Is the Ipv4 address of the resolver server (a real world nameserver), use `cat cat /etc/resolv.conf` to see your local nameserver ip.
+* **server-ip**: <br/>Is the Ipv4 address of the resolver server (a real world nameserver), use `cat /etc/resolv.conf` to see your local nameserver ip.
 * **server-port**: <br/>Is the port that the nameserver with ip specified before is listening on. My default DNS uses `port 53`
 
 When running theapplication will print `Listening on port 8053`, we can now send IPv6 queries to our proxy. This can be done with third-party tools such as [dig][3], use `sudo apt install dig` in Ubuntu to install dig.
@@ -77,5 +79,13 @@ To terminate application use SIGNINT (e.g. CTRL-C).
 
 <p align="center">
 <img src="./images/app-demo.gif" alt="Application Demo" width="800">
-<center><small>Running Application Demo</small></center>
+<br/>
+Running Application Demo
 </p>
+
+<hr>
+
+## Further Reading
+For more information regarding DNS query headers and overall structure refer to [this article][3].
+
+[3]: https://routley.io/posts/hand-writing-dns-messages/
