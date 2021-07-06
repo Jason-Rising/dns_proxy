@@ -20,13 +20,15 @@ Computers on the internet use IP addresses to communicate with each other. These
 <br/>
 <p align="center">
 <img src="./images/nameserver.png" alt="DNS Nameserver Hierarchy" width="500">
-<p style="text-align:center">DNS Nameserver Hierarchy</p>
+<center><small>DNS Nameserver Hierarchy</small></center>
 </p>
 <br/><br/>
 <p align="center">
 <img src="./images/DNS example.png" alt="DNS Nameserver Hierarchy" width="500">
-<p style="text-align:center">DNS Process Example</p>
+<center><small>DNS Process Example</small></center>
 </p>
+
+<hr/>
 
 ## Project Structure
 | Directory | Description |
@@ -40,3 +42,40 @@ Computers on the internet use IP addresses to communicate with each other. These
 | modules/log.c | Provides logging functions to create dns_svr.log. Provides time functions to concat and generate timestamps |
 | modules/util.c | Provides a series of utility functions such as Concatenating/splitting N-bits and printing hex representation of binary data |
 | images/ | Folder containing images used in README |
+
+<hr/>
+
+## Running Project
+Project must be run in an **Unix environment** due to unix dependent C libraries. 
+Once project has been loaded in a unix environment (e.g. Ubuntu) use the Makefile to compile the various scripts. Type `make` in the terminal to do so.
+This will generate a `dns_svr` executable. 
+
+The application can be run using the following command:
+
+```
+./dns_svr <server-ip> <server-port>
+```
+
+Where, 
+
+* **server-ip**: <br/>Is the Ipv4 address of the resolver server (a real world nameserver), use `cat cat /etc/resolv.conf` to see your local nameserver ip.
+* **server-port**: <br/>Is the port that the nameserver with ip specified before is listening on. My default DNS uses `port 53`
+
+When running theapplication will print `Listening on port 8053`, we can now send IPv6 queries to our proxy. This can be done with third-party tools such as [dig][3], use `sudo apt install dig` in Ubuntu to install dig.
+
+<br/><br/>
+
+With dig we can use the following command to send a query for google.com:
+```
+dig +tcp @<your ip address> -p 8053 AAAA google.com
+```
+Note, `+tcp` indicates we are using TCP to send the query. `AAAA` specifies we want to recieve the IPv6 address.
+
+Use `hostname -I` to find your local IP address in unix environment.
+
+To terminate application use SIGNINT (e.g. CTRL-C).
+
+<p align="center">
+<img src="./images/app-demo.gif" alt="Application Demo" width="800">
+<center><small>Running Application Demo</small></center>
+</p>
