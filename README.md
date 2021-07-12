@@ -65,6 +65,8 @@ Where,
 
 When running theapplication will print `Listening on port 8053`, we can now send IPv6 queries to our proxy. This can be done with third-party tools such as [dig][3], use `sudo apt install dig` in Ubuntu to install dig.
 
+[3]: https://linux.die.net/man/1/dig
+
 <br/><br/>
 
 With dig we can use the following command to send a query for google.com:
@@ -86,6 +88,6 @@ Running Application Demo
 <hr>
 
 ## Further Reading
-For more information regarding DNS query headers and overall structure refer to [this article][3].
+For more information regarding DNS query headers and overall structure refer to [this article][4].
 
-[3]: https://routley.io/posts/hand-writing-dns-messages/
+[4]: https://routley.io/posts/hand-writing-dns-messages/
