@@ -9,7 +9,7 @@
 <hr>
 
 ## About
-Application can recieve and respond to TCP [IPv6 DNS][1] queries. Contents of queries are recorded and a log file is generated providing a history of all requests through proxy. Application caches recent queries, queries are expired in accordance to [TLL (time-to-live)][2].
+Application can receive and respond to TCP [IPv6 DNS][1] queries. Contents of queries are recorded and a log file is generated providing a history of all requests through proxy. Application caches recent queries, queries are expired in accordance to [TLL (time-to-live)][2].
 
 [1]: https://datatracker.ietf.org/doc/html/rfc3596
 [2]: https://datatracker.ietf.org/doc/html/rfc1035#section-3.2
@@ -63,7 +63,7 @@ Where,
 * **server-ip**: <br/>Is the Ipv4 address of the resolver server (a real world nameserver), use `cat /etc/resolv.conf` to see your local nameserver ip.
 * **server-port**: <br/>Is the port that the nameserver with ip specified before is listening on. My default DNS uses `port 53`
 
-When running theapplication will print `Listening on port 8053`, we can now send IPv6 queries to our proxy. This can be done with third-party tools such as [dig][3], use `sudo apt install dig` in Ubuntu to install dig.
+When running the application will print `Listening on port 8053`, we can now send IPv6 queries to our proxy. This can be done with third-party tools such as [dig][3], use `sudo apt install dig` in Ubuntu to install dig.
 
 [3]: https://linux.die.net/man/1/dig
 
@@ -73,11 +73,11 @@ With dig we can use the following command to send a query for google.com:
 ```
 dig +tcp @<your ip address> -p 8053 AAAA google.com
 ```
-Note, `+tcp` indicates we are using TCP to send the query. `AAAA` specifies we want to recieve the IPv6 address.
+Note, `+tcp` indicates we are using TCP to send the query. `AAAA` specifies we want to receive the IPv6 address.
 
 Use `hostname -I` to find your local IP address in unix environment.
 
-To terminate application use SIGNINT (e.g. CTRL-C).
+To terminate the application use SIGNINT (e.g. CTRL-C).
 
 <p align="center">
 <img src="./images/app-demo.gif" alt="Application Demo" width="800">
